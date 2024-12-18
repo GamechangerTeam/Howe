@@ -1,0 +1,68 @@
+// #region BREAKPOINTS
+@mixin break($size) {
+  @media (min-width: #{$size}) {
+    @content;
+  }
+}
+
+@mixin break-max($size) {
+  @media (max-width: #{$size}) {
+    @content;
+  }
+}
+
+@mixin break-height($size) {
+  @media (max-height: #{$size}) {
+    @content;
+  }
+}
+
+@mixin pc() {
+  @include break(1441px) {
+    @content;
+  }
+}
+
+@mixin laptop() {
+  @include break(1025px) {
+    @content;
+  }
+}
+
+@mixin tablet-big() {
+  @include break(961px) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @include break(769px) {
+    @content;
+  }
+}
+
+@mixin mobile-big() {
+  @include break(526px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include break(431px) {
+    @content;
+  }
+}
+
+@mixin mobile-mid {
+  @include break(376px) {
+    @content;
+  }
+}
+
+@mixin mobile-min {
+  @include break(351px) {
+    @content;
+  }
+}
+
+// #endregion

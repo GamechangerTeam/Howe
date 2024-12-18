@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .container {
+      @apply max-w-pc w-full p-3 m-auto;
+      
+      @screen mobile-big {
+        @apply p-4
+      }
+
+      @screen tablet {
+        @apply p-6
+      }
+    }
+  }
