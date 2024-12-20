@@ -1,11 +1,4 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json",
-  "include": ["types.d.ts", "**/*.ts", "**/*.vue"],
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"] // Указывает, что `@/` соответствует корню проекта
-    }
-  },
-  "exclude": ["node_modules", ".nuxt", "dist"]
+  "extends": "./.nuxt/tsconfig.json"
 }

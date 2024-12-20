@@ -1,13 +1,14 @@
 <script setup>
 import Header from '~/components/layouts/Header.vue';
+import Footer from '~/components/layouts/Footer.vue';
 </script>
 
 <template>
-  <div>
+  <div id="app">
     <Header />
-    <main>
+    <main class="pt-[50px] mobile:pt-[60px] tablet:pt-[76px]">
       <slot />
     </main>
-    <footer class="text-center p-4">© 2024 My Nuxt3 App</footer>
+    <Footer />
   </div>
 </template>

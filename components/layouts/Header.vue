@@ -1,25 +1,42 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-const isOpen = ref(false);
+import { ref } from "vue";
+import { usePopupStore } from "~/store/popup";
+const popupStore = usePopupStore();
+const isHeaderOpen = ref<boolean>(false);
+
+const popupHandler = () => {
+  if (popupStore.isOpen && popupStore.name === "header") {
+    popupStore.close();
+    isHeaderOpen.value = false;
+  } else {
+    popupStore.open("header");
+    isHeaderOpen.value = true;
+  }
+};
 </script>
 
 <template>
-  <header class="header h-[50px] flex">
-    <div class="container flex items-center justify-between text-xs mobile:text-base mobile-big:text-xl">
-      <ul class="hidden tablet-big:flex gap-8 items-center  ">
+  <header
+    class="fixed z-50 w-lvw bg-primary-white header h-[50px] mobile:h-[60px] tablet:h-[76px] flex"
+  >
+    <div
+      class="container flex items-center justify-between text-xs mobile:text-base mobile-big:text-xl"
+    >
+      <ul class="hidden tablet-big:flex gap-8 items-center">
         <li>
-          <NuxtLink to="/">Женское</NuxtLink>
+          <NuxtLink to="/catalog/female">Женское</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/">Мужское</NuxtLink>
+          <NuxtLink to="/catalog/male">Мужское</NuxtLink>
         </li>
         <li>
           <NuxtLink to="/">Новинки и акции</NuxtLink>
         </li>
       </ul>
-      <button class="flex gap-2 items-center tablet-big:hidden" @click="isOpen = !isOpen">
-        <span class="header__close-btn" :class="{ active: isOpen }" />
-        {{ isOpen ? 'Закрыть' : 'Открыть' }}
+
+      <button class="flex gap-2 items-center tablet-big:hidden" @click="popupHandler">
+        <span class="header__close-btn" :class="{ active: isHeaderOpen }" />
+        {{ isHeaderOpen ? "Закрыть" : "Меню" }}
       </button>
       <NuxtLink to="/" class="text-xl absolute left-1/2 translate-x-[-40%]">
         Howe
@@ -28,48 +45,12 @@ const isOpen = ref(false);
       <span> Корзина (0) </span>
     </div>
 
-    <div class="header__popup bg-primary-white" :class="{ open: isOpen }">
-      <ul class="flex-col text-5xl gap-8 items-center">
-        <li>
-          <NuxtLink to="/">Женское</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Мужское</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Новинки</NuxtLink>
-        </li>
-      </ul>
-      <div class=" ">
-        <div class="container">
-          <div class="flex gap-2 justify-center items-center mb-3">
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <img src="/icons/instagram.svg" alt="instagram" />
-            </a>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <img src="/icons/telegram.svg" alt="telegram" />
-            </a>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <img src="/icons/twitter.svg" alt="twitter" />
-            </a>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <img src="/icons/youtube.svg" alt="youtube" />
-            </a>
-          </div>
-          <button
-            class="bg-primary-blue-gradient w-full flex gap-3 justify-center items-center rounded-xl h-[60px] text-primary-white text-xl"
-          >
-            <img src="/icons/bill.svg" alt="" />
-            Оформить
-          </button>
-        </div>
-      </div>
-    </div>
+    <ModalsHeaderPopup />
   </header>
 </template>
 
 <style lang="scss">
-@use '~/assets/css/_components.scss' as *;
+@use "~/assets/css/_components.scss" as *;
 .header {
   &__close-btn {
     position: relative;
@@ -86,7 +67,7 @@ const isOpen = ref(false);
     }
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 30%;
       left: 0;
@@ -122,7 +103,7 @@ const isOpen = ref(false);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
     li {
       a {
         display: block;
@@ -131,12 +112,12 @@ const isOpen = ref(false);
         padding: 16px 12px;
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           right: 24px;
           top: 50%;
           transform: translateY(-50%);
-          background: url('https://api.iconify.design/material-symbols:arrow-forward-ios-rounded.svg')
+          background: url("https://api.iconify.design/material-symbols:arrow-forward-ios-rounded.svg")
             center / contain no-repeat;
           width: 20px;
           height: 20px;
@@ -150,6 +131,14 @@ const isOpen = ref(false);
 
     &.open {
       bottom: 0;
+    }
+
+    @include mobile {
+      height: calc(100vh - 60px);
+    }
+
+    @include tablet {
+      height: calc(100vh - 76px);
     }
 
     @include tablet-big {
