@@ -24,9 +24,10 @@ module.exports = {
       colors: {
         "primary-red": "#C41E40",
         "primary-blue": "#1E37C4",
-        "primary-white": "#F5F5F5",
+        "primary-white": "#FCFCFC",
         "primary-gray": "#EBEBEB",
-        "primary-black-100": "#00000057",
+        "primary-black-100": "#00000012",
+        "primary-black-300": "#00000057",
         border: "(var(--border))",
         input: "(var(--input))",
         ring: "(var(--ring))",

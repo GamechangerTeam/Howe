@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "nuxt-swiper",
     "@pinia/nuxt",
+    "@vueuse/nuxt"
   ],
   devtools: { enabled: false },
   compatibilityDate: "2024-12-19",

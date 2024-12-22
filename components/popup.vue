@@ -20,6 +20,11 @@ watch(
   () => popupStore.isOpen,
   () => {
     checkPopupState();
+    if (popupStore.isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   }
 );
 </script>

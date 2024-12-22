@@ -23,7 +23,7 @@ const props = defineProps<{
     <div class="basePadding-x max-w-mobileBig mx-auto mt-5 hidden tablet:block">
       <Button asChild class="group" variant="whiteWithBorder">
         <NuxtLink :to="props.sex === 'male' ? '/catalog/male' : '/catalog/female'">
-          >Смотреть
+          Смотреть
           <span class="colored-text">{{ props.sex === "male" ? "Мужской" : "Женский" }}</span>
           каталог
           <ArrowRight :stroke-width="1.5" :size="20" class="group-hover:-rotate-45 colored-text" />
@@ -47,7 +47,7 @@ const props = defineProps<{
             <span
               v-for="(color, index) in slide.color"
               :key="index"
-              class="rounded-full border border-primary-black-100 h-8 aspect-square"
+              class="rounded-full border border-primary-black-300 h-8 aspect-square"
               :style="{ backgroundColor: color }"
             ></span>
           </div>
@@ -56,8 +56,8 @@ const props = defineProps<{
     </Swiper>
     <div class="basePadding-x max-w-mobileBig mx-auto mt-5 tablet:hidden">
       <Button asChild class="group w-full" variant="whiteWithBorder">
-        <NuxtLink :to="props.sex === 'male' ? '/catalog/male' : '/catalog/female'"
-          >Смотреть
+        <NuxtLink :to="props.sex === 'male' ? '/catalog/male' : '/catalog/female'">
+          Смотреть
           <span class="colored-text">{{ props.sex === "male" ? "Мужской" : "Женский" }}</span>
           каталог
           <ArrowRight :stroke-width="1.5" :size="20" class="group-hover:-rotate-45 colored-text" />

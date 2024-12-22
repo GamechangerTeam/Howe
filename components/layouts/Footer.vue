@@ -1,18 +1,14 @@
-<script setup lang="ts">
-import Button from "~/components/ui/button/Button.vue";
-</script>
-
 <template>
-  <footer class="footer blockTopMargin ">
+  <footer class="footer blockTopMargin">
     <div class="relative">
       <div class="container">
         <div class="fullHeight">
-          <h2 class="text-primary-black-100 mb-6">
+          <h2 class="text-primary-black-300 mb-6">
             “Каждая деталь имеет значение — <i>мы создаем будущее</i> , соединяя <i>качество</i> и
             <i>инновации”</i>
           </h2>
           <Button asChild variant="whiteOutline">
-            <NuxtLink to="/catalog">Смотреть каталог</NuxtLink>
+            <NuxtLink to="/catalog/female">Смотреть каталог</NuxtLink>
           </Button>
           <NuxtImg
             src="/images/footer-bg.jpg"
@@ -22,7 +18,7 @@ import Button from "~/components/ui/button/Button.vue";
       </div>
     </div>
     <div class="bg-black">
-      <div class="container  text-primary-white">
+      <div class="container text-primary-white">
         <div class="footer__footer">
           <h3 class="text-2xl">Howe</h3>
           <div class="footer__woman">
@@ -65,7 +61,7 @@ import Button from "~/components/ui/button/Button.vue";
               </li>
             </ul>
           </div>
-  
+
           <ul class="footer__others">
             <li>
               <nuxt-link to="/">Новинки и акции</nuxt-link>
@@ -91,13 +87,13 @@ import Button from "~/components/ui/button/Button.vue";
                 <img src="/icons/telegram-black.svg" alt="telegram" />
               </a>
             </li>
-  
+
             <li>
               <a href="/" target="_blank" rel="noopener noreferrer">
                 <img src="/icons/twitter-black.svg" alt="twitter" />
               </a>
             </li>
-  
+
             <li>
               <a href="/" target="_blank" rel="noopener noreferrer">
                 <img src="/icons/youtube-black.svg" alt="youtube" />
@@ -107,9 +103,7 @@ import Button from "~/components/ui/button/Button.vue";
           <p class="footer__copyright">© Copyright 2024</p>
         </div>
       </div>
-      
     </div>
-
   </footer>
 </template>
 

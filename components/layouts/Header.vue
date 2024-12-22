@@ -40,7 +40,7 @@ const popupHandler = () => {
       </button>
       <NuxtLink to="/" class="text-xl absolute left-1/2 translate-x-[-40%]">
         Howe
-        <span class="text-xs text-primary-black-100 align-top">(Medical)</span>
+        <span class="text-xs text-primary-black-300 align-top">(Medical)</span>
       </NuxtLink>
       <span> Корзина (0) </span>
     </div>
