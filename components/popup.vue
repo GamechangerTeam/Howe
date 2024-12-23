@@ -5,6 +5,7 @@ import { usePopupStore } from "~/store/popup";
 const props = defineProps<{
   name: Names;
   class?: string;
+  variants?: string;
 }>();
 
 const popupStore = usePopupStore();
@@ -30,7 +31,11 @@ watch(
 </script>
 
 <template>
+  <div v-if="variants === 'cart'">
+
+  </div>
   <div
+    v-else
     class="popup w-full fixed z-50 left-0 bg-primary-white duration-300 ease-in-out"
     :class="[
       props.class,

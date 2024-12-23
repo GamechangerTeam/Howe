@@ -69,7 +69,7 @@ const tabs = [
                   :class="tab.isColor ? '' : 'flex gap-2 items-center text-nowrap'"
                 >
                   <Checkbox :id="option" :color="option" :isColor="tab.isColor" />
-                  <label v-if="!tab.isColor" :for="option" @click="console.log(option)">
+                  <label v-if="!tab.isColor" :for="option" >
                     {{ option }}
                   </label>
                 </li>

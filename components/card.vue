@@ -1,14 +1,5 @@
 <script lang="ts" setup>
-import type { Color } from "sharp";
-
-interface CardTypes {
-  name: string;
-  secondName?: string;
-  price: string;
-  oldPrice?: string;
-  colors?: string[];
-  img: string;
-}
+import type { CardTypes } from "~/types/card";
 
 const { data } = defineProps<{ data: CardTypes }>();
 </script>
@@ -19,11 +10,11 @@ const { data } = defineProps<{ data: CardTypes }>();
     <div class="card__info">
       <h4 class="card__title">
         {{ data.name }}
-        <span class="card__description">{{ data.secondName }}</span>
+        <span v-if="data.secondName" class="card__description">{{ data.secondName }}</span>
       </h4>
       <div class="card__prices-wrapper">
-        <span class="card__old-price">{{ data.oldPrice }}</span>
-        <span class="card__pice">{{ data.price }}</span>
+        <span v-if="data.oldPrice" class="card__old-price">{{ data.oldPrice }}</span>
+        <span class="card__price">{{ data.price }}</span>
       </div>
 
       <div class="card__footer">

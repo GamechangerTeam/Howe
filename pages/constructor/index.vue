@@ -1,17 +1,4 @@
-<script setup lang="ts">
-import { useRoute } from "vue-router";
-import { Filter } from "lucide-vue-next";
-import { usePopupStore } from "~/store/popup";
-const route = useRoute();
-const type = route.params.type as string;
-const popupStore = usePopupStore();
-
-const sex = ["Мужской", "Женский"];
-const sizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"];
-const clotheStyles = ["Спортивный", "Классический", "Повседневный"];
-const colors = ["#000", "#f5f5f5", "#f00", "#0f0", "#00f", "#ff0", "#f0f", "#0ff"];
-const sort = ["По возрастанию", "По убыванию"];
-
+<script lang="ts" setup>
 const itemsList = [
   {
     name: "Хуюзка",
@@ -105,41 +92,34 @@ const itemsList = [
 </script>
 
 <template>
-  <div class="container mt-9 mb-6">
-    <div
-      class="flex justify-between mb-6 items-center tablet:justify-center tablet:mb-10 tablet-big:mb-12"
-    >
-      <h1
-        class="text-4xl text-center tablet:text-5xl tablet-big:text-6xl"
-        :class="type === 'male' ? 'text-primary-blue' : 'text-primary-red'"
-      >
-        {{ type === "male" ? "Мужское" : "Женское" }}
-        <span class="text-base text-black align-top inline-block -translate-y-2 -translate-x-2"
-          >(24)</span
-        >
-      </h1>
-      <button
-        class="flex gap-2 items-center text-sm p-2 tablet:hidden"
-        @click="popupStore.open('filter')"
-      >
-        <Filter
-          :class="type === 'male' ? 'text-primary-blue' : 'text-primary-red'"
-          :stroke-width="1.5"
-        />
-        Фильтры
-      </button>
-    </div>
-    <CatalogFilter />
-
-    <ModalsFilterPopup
-      :color="type === 'male' ? 'text-primary-blue' : 'text-primary-red'"
-      :sizes="sizes"
-      :clotheStyles="clotheStyles"
-      :colors="colors"
-      :sex="sex"
-      :sort="sort"
-    />
-
+  <div class="container">
+    <h1 class="text-4xl text-left mt-8 mobile-mid:text-center tablet:text-5xl">
+      Выберите подходящую одежду
+    </h1>
+    <Command class="rounded-lg border shadow-md max-w-[310px] my-8">
+      <CommandInput placeholder="Найти" />
+      <CommandList>
+        <CommandEmpty>Совпадений не найдено</CommandEmpty>
+        <CommandItem value="xui1">
+          <span>xui1</span>
+        </CommandItem>
+        <CommandItem value="xui2">
+          <span>xui2</span>
+        </CommandItem>
+        <CommandItem value="xui2">
+          <span>xui2</span>
+        </CommandItem>
+        <CommandItem value="xui2">
+          <span>xui2</span>
+        </CommandItem>
+        <CommandItem value="xui2">
+          <span>xui2</span>
+        </CommandItem>
+        <CommandItem value="xui2">
+          <span>xui2</span>
+        </CommandItem>
+      </CommandList>
+    </Command>
     <ul
       class="grid gap-2 mt-6 mobile-min:grid-cols-2 mobile-big:grid-cols-3 tablet:grid-cols-4 tablet:gap-3 tablet-big:gap-5"
     >
@@ -147,14 +127,5 @@ const itemsList = [
         <Card :data="item" />
       </li>
     </ul>
-
-    <Pagination />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.loxdd {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-</style>

@@ -3,11 +3,13 @@ import { onMounted } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import type { ProductCard } from "~/types/productCard";
+import type { CardTypes } from "~/types/card";
 
 const props = defineProps<{
-  slides: ProductCard[];
+  slides: CardTypes[];
   className: string;
   id: string;
+  manySlides?: boolean
 }>();
 
 onMounted(() => {
@@ -19,22 +21,32 @@ onMounted(() => {
     speed: 600,
     breakpoints: {
       960: {
-        slidesPerView: 3.2,
+        slidesPerView: props.manySlides ? 6.2  : 3.2,
         centeredSlides: false,
         spaceBetween: 20,
       },
       768: {
-        slidesPerView: 2.2,
+        slidesPerView: props.manySlides ? 5.2  : 2.2,
         centeredSlides: false,
         spaceBetween: 20,
       },
-      430: {
-        slidesPerView: 1.5,
+      601: {
+        slidesPerView: props.manySlides ? 4.2  : 1.5,
+        centeredSlides: false,
+        spaceBetween: 20,
+      }, 
+      526: {
+        slidesPerView: props.manySlides ? 3.2  : 1.5,
+        centeredSlides: false,
+        spaceBetween: 20,
+      } ,
+      431: {
+        slidesPerView: props.manySlides ? 2.5  : 1.5,
         centeredSlides: false,
         spaceBetween: 20,
       },
-      375: {
-        slidesPerView: 1.2,
+      376: {
+        slidesPerView: props.manySlides ? 2.2  : 1.2,
         centeredSlides: true,
         spaceBetween: 20,
       },
@@ -58,7 +70,6 @@ onMounted(() => {
         <slot :slide="slide"></slot>
       </div>
     </div>
-    <!-- <div class="swiper-pagination"></div> -->
     <div :class="`${props.className}-button-next swiper-button-next`"></div>
     <div :class="`${props.className}-button-prev swiper-button-prev`"></div>
   </div>

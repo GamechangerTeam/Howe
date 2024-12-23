@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import Swiper from "~/components/swiper/Swiper.vue";
 import Button from "~/components/ui/button/Button.vue";
-import type { ProductCard } from "~/types/productCard";
 import { ArrowRight } from "lucide-vue-next";
+import type { CardTypes } from "~/types/card";
 
-// const props = defineProps<BestSellers>();
+const props = defineProps<{
+  cardInfo: CardTypes[];
+  class: string;
+  id: string;
+  sex: "male" | "female";
+}>();
 </script>
 
 <template>
-  <h2>asda</h2>
-  <!-- <div
+  <div
     class="best-sellers blockTopMargin pc:basePadding pc:mx-auto pc:max-w-pc relative"
     :class="props.class"
   >
@@ -34,21 +38,7 @@ import { ArrowRight } from "lucide-vue-next";
       :id="props.id"
     >
       <template #default="{ slide }">
-        <NuxtImg :src="slide.img" class="w-full h-full object-cover rounded-sm" width="500" />
-        <div
-          class="absolute grid grid-cols-2 gap-3 z-1 bg-primary-white w-[calc(100%-8px)] p-5 left-1 bottom-1 rounded-sm"
-        >
-          <h3>{{ slide.name }}</h3>
-          <p class="text-2xl text-right">{{ slide.price }}</p>
-          <div class="flex gap-1" style="grid-area: 2/1">
-            <span
-              v-for="(color, index) in slide.colors"
-              :key="index"
-              class="rounded-full border border-primary-black-300 h-8 aspect-square"
-              :style="{ backgroundColor: color }"
-            ></span>
-          </div>
-        </div>
+        <Card :data="slide" />
       </template>
     </Swiper>
     <div class="basePadding-x max-w-mobileBig mx-auto mt-5 tablet:hidden">
@@ -61,20 +51,20 @@ import { ArrowRight } from "lucide-vue-next";
         </NuxtLink>
       </Button>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style lang="scss">
 @use "~/assets/css/_components.scss" as *;
 
 .best-sellers {
-  &--man {
+  &--male {
     .colored-text {
       color: $primary-blue;
     }
   }
 
-  &--woman {
+  &--female {
     .colored-text {
       color: $primary-red;
     }

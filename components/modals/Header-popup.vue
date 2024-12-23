@@ -5,7 +5,7 @@ import { usePopupStore } from "~/store/popup";
 const popupStore = usePopupStore();
 
 const popupHandler = () => {
-  if (popupStore.isOpen ) {
+  if (popupStore.isOpen) {
     popupStore.close();
   } else {
     popupStore.open("header");
@@ -43,7 +43,7 @@ const popupHandler = () => {
       >
         <NuxtLink
           @click="popupHandler"
-          to="/"
+          to="/product/male/xui"
           class="block relative pl-3 pr-10 after:content-[''] after:absolute after:right-6 after:top-1/2 after:transform after:-translate-y-1/2 after:bg-[url('https://api.iconify.design/material-symbols:arrow-forward-ios-rounded.svg')] after:bg-center after:bg-contain after:bg-no-repeat after:w-5 after:h-5"
         >
           Новинки

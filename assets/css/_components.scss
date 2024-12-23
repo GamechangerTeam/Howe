@@ -41,6 +41,12 @@
   }
 }
 
+@mixin tablet-min() {
+  @include break(601px) {
+    @content;
+  }
+}
+
 @mixin mobile-big() {
   @include break(526px) {
     @content;

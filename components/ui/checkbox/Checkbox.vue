@@ -32,7 +32,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     :style="{ background: props.color }"
   >
     <CheckboxIndicator v-if="props.isColor" data-xyi="xyi" class="border-primary-black-300">
-      <Check :size="12" color="#fff" />
+      <Check :size="16" :strokeWidth="3" color="#fff" />
     </CheckboxIndicator>
     <CheckboxIndicator v-else class="flex h-full w-full items-center justify-center text-current">
       <slot>

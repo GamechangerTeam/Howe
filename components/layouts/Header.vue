@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { usePopupStore } from "~/store/popup";
 const popupStore = usePopupStore();
-const isHeaderOpen = ref<boolean>(false);
+const isHeaderOpen = ref<boolean>(popupStore.isOpen && popupStore.name === "header");
 
 const popupHandler = () => {
-  if (popupStore.isOpen && popupStore.name === "header") {
+  if (popupStore.isOpen) {
     popupStore.close();
     isHeaderOpen.value = false;
   } else {
@@ -13,6 +13,14 @@ const popupHandler = () => {
     isHeaderOpen.value = true;
   }
 };
+
+watch(() => popupStore.isOpen, () => {
+  if (!popupStore.isOpen) {
+    isHeaderOpen.value = false
+  }
+})
+
+
 </script>
 
 <template>
@@ -30,7 +38,7 @@ const popupHandler = () => {
           <NuxtLink to="/catalog/male">Мужское</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/">Новинки и акции</NuxtLink>
+          <NuxtLink to="/product/male/xyi">Новинки и акции</NuxtLink>
         </li>
       </ul>
 

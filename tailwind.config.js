@@ -99,6 +99,9 @@ module.exports = {
           "radial-gradient(199.04% 232.03% at 50% 254.69%, rgba(102, 102, 102, 0.4) 0%, #000000 100%)",
         "primary-white-gradient":
           "radial-gradient(202% 298.26% at -21.7% 35.45%, rgba(255, 255, 255, 0.5) 0%, rgba(102, 102, 102, 0.5) 100%)",
+        "primary-white-gradient-left":
+          "radial-gradient(292.52% 431.93% at 157.11% 57.27%, rgba(255, 255, 255, 0.5) 0%, rgba(102, 102, 102, 0.5) 100%) ",
+
         "primary-border-gradient":
           "linear-gradient(0deg, rgba(1, 1, 1, 0.16) 0%, rgba(1, 1, 1, 0.032) 100%)",
       },
