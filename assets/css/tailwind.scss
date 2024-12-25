@@ -130,6 +130,18 @@
     }
   }
 
+  .basePadding-y {
+    @apply py-3;
+
+    @screen mobile-big {
+      @apply py-4;
+    }
+
+    @screen tablet {
+      @apply py-6;
+    }
+  }
+
   .blockTopMargin {
     @apply mt-20;
 

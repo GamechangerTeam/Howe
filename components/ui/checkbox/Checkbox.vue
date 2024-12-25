@@ -6,13 +6,17 @@ import { computed, type HTMLAttributes } from "vue";
 import { Check } from "lucide-vue-next";
 
 const props = defineProps<
-  CheckboxRootProps & { class?: HTMLAttributes["class"]; color?: string; isColor?: boolean }
+  CheckboxRootProps & {
+    class?: HTMLAttributes["class"];
+    color?: string;
+    isColor?: boolean;
+    isSquare?: boolean;
+  }
 >();
 const emits = defineEmits<CheckboxRootEmits>();
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;
-
   return delegated;
 });
 
@@ -22,21 +26,30 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 <template>
   <CheckboxRoot
     v-bind="forwarded"
-    :class="
-      cn(
-        'peer h-[20px] w-[20px] flex items-center justify-center shrink-0 rounded-full border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
-        props.class,
-        props.color ? 'border-primary-black-300' : ''
-      )
-    "
+    :class="cn(
+      'peer h-[20px] w-[20px] flex items-center justify-center shrink-0 rounded-full border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
+      props.class,
+      { 'border-primary-black-300': props.color }
+    )"
     :style="{ background: props.color }"
   >
-    <CheckboxIndicator v-if="props.isColor" data-xyi="xyi" class="border-primary-black-300">
-      <Check :size="16" :strokeWidth="3" color="#fff" />
-    </CheckboxIndicator>
-    <CheckboxIndicator v-else class="flex h-full w-full items-center justify-center text-current">
+    <CheckboxIndicator
+      :class="cn(
+        props.isColor
+          ? 'border-primary-black-300'
+          : props.isSquare
+          ? 'border-red-300 bg-black w-full h-full flex items-center justify-center'
+          : 'flex h-full w-full items-center justify-center text-current'
+      )"
+    >
       <slot>
-        <span class="w-2 h-2 bg-black rounded-full"></span>
+        <Check
+          v-if="props.isColor || props.isSquare"
+          :size="14"
+          :strokeWidth="3"
+          color="#fff"
+        />
+        <span v-else class="w-2 h-2 bg-black rounded-full"></span>
       </slot>
     </CheckboxIndicator>
   </CheckboxRoot>

@@ -11,8 +11,13 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: false },
   compatibilityDate: "2024-12-19",
-  css: ["~/assets/css/tailwind.css", "~/assets/css/globals.css"],
+  css: ["~/assets/css/tailwind.scss", "~/assets/css/globals.scss"],
   typescript: {
     typeCheck: true
-  }
+  },
+  
+  // ssr: false,
+  // app: {
+  //   baseURL: "/Howe",
+  // },
 });

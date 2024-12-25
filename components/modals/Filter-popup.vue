@@ -34,6 +34,7 @@ const popupStore = usePopupStore();
       <X />
     </Button>
     <p class="basePadding text-4xl mt-4 mb-3" :class="color">Фильтр</p>
+    
     <Accordion type="multiple" class="w-full h-full overflow-y-auto" collapsible>
       <AccordionItem value="Пол">
         <AccordionTrigger>Пол</AccordionTrigger>

@@ -14,13 +14,14 @@ const popupHandler = () => {
   }
 };
 
-watch(() => popupStore.isOpen, () => {
-  if (!popupStore.isOpen) {
-    isHeaderOpen.value = false
+watch(
+  () => popupStore.isOpen,
+  () => {
+    if (!popupStore.isOpen) {
+      isHeaderOpen.value = false;
+    }
   }
-})
-
-
+);
 </script>
 
 <template>
@@ -50,7 +51,7 @@ watch(() => popupStore.isOpen, () => {
         Howe
         <span class="text-xs text-primary-black-300 align-top">(Medical)</span>
       </NuxtLink>
-      <span> Корзина (0) </span>
+      <button @click="popupStore.open('cart')">Корзина (0)</button>
     </div>
 
     <ModalsHeaderPopup />

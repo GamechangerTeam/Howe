@@ -1,6 +1,9 @@
-<script setup>
-import Header from '~/components/layouts/Header.vue';
-import Footer from '~/components/layouts/Footer.vue';
+<script setup lang="ts">
+import Header from "~/components/layouts/Header.vue";
+import Footer from "~/components/layouts/Footer.vue";
+import CartPopup from "~/components/modals/Cart-popup.vue";
+
+const route = useRoute()
 </script>
 
 <template>
@@ -8,7 +11,8 @@ import Footer from '~/components/layouts/Footer.vue';
     <Header />
     <main class="pt-[50px] mobile:pt-[60px] tablet:pt-[76px]">
       <slot />
+      <CartPopup />
     </main>
-    <Footer />
+    <Footer v-if="!route.meta.hideFooter" />
   </div>
 </template>
