@@ -13,8 +13,6 @@ const props = defineProps<{
 }>();
 
 onMounted(() => {
-  console.log("XYI");
-
   new Swiper(`#${props.id}`, {
     slidesPerView: 1,
     spaceBetween: 24,
@@ -63,11 +61,9 @@ onMounted(() => {
   padding-left: 12px;
   padding-right: 24px;
   padding-bottom: 20px;
-  width: calc(100% + 24px) !important;
+  width: calc(100% + 12px) !important;
   transform: translateX(-12px) !important;
   @include mobile-big {
-    width: calc(100% + 32px) !important;
-    transform: translateX(-16px) !important;
   }
 
   .swiper-button-prev,

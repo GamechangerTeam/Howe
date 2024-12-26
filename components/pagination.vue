@@ -6,8 +6,6 @@ const totalPages = 20; // Общее количество страниц
 const currentPage = ref(1); // Текущая страница
 
 const visiblePages = computed(() => {
-  console.log();
-
   const pages = [];
   if (totalPages <= 7) {
     for (let i = 1; i <= totalPages; i++) {
@@ -129,13 +127,13 @@ const nextPage = () => {
     }
 
     &.active {
-      background: $primary-blue-gradient;
+      background: var(--page-color-bg);
       color: $primary-white;
       outline: none !important;
     }
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        background: $primary-blue-gradient;
+        background: var(--page-color-bg);
         color: $primary-white;
         scale: 0.95;
         opacity: 0.8;
@@ -150,7 +148,7 @@ const nextPage = () => {
 
   &__next,
   &__prev {
-    background: $primary-blue-gradient !important;
+    background: var(--page-color-bg) !important;
     color: $primary-white !important;
     border-radius: 4px;
     outline: none !important;

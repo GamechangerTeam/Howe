@@ -1,16 +1,24 @@
 @font-face {
   font-family: "Magnet";
-  src: url("/fonts/MagnetTrial.ttf") format("ttf");
+  src: url("/fonts/MagnetTrial.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
-
 @font-face {
   font-family: "Magnet2";
-  src: url("/fonts/MagnetTrial-bold.ttf") format("ttf");
+  src: url("/fonts/MagnetTrial-bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Playfair";
-  src: url("/fonts/PlayfairDisplay.ttf") format("ttf");
+  src: url("/fonts/PlayfairDisplay.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Playfair-italic";
+  src: url("/fonts/PlayfairDisplay-italic.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -21,10 +29,12 @@ html {
 }
 
 * {
-  font-family: "Magnet", sans-serif;
+  font-family: "Magnet", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root {
+  --page-color: #c41e40;
+  --page-color-bg: radial-gradient(100.51% 124.04% at 50% 4.99%, #c41e40 0%, #ee6580 100%);
   --primary-red: #c41e40;
   --primary-blue: #1e37c4;
   --primary-white: #fcfcfc;
@@ -32,6 +42,7 @@ html {
   --primary-black-300: #00000057;
   --catalog-menu-position: 100px;
   --primary-blue-gradient: radial-gradient(100.51% 124.04% at 50% 4.99%, #1e37c4 0%, #6f85ff 100%);
+  --primary-red-gradient: radial-gradient(100.51% 124.04% at 50% 4.99%, #c41e40 0%, #ee6580 100%);
   --primary-black-gradient: radial-gradient(
     199.04% 232.03% at 50% 254.69%,
     rgba(102, 102, 102, 0.4) 0%,
@@ -59,7 +70,6 @@ html {
 
   &::-webkit-scrollbar-track {
     background-color: var(--primary-black-100);
-
   }
 
   &::-webkit-scrollbar-thumb {

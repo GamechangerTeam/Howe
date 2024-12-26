@@ -22,7 +22,7 @@ const { items } = useCartStore();
         <hr />
       </div>
       <div
-        class="basePadding-y pl-3 mobile-big:pl-4 overflow-y-auto overflow-x-hidden h-[calc(100lvh-57px)] mobile-big:h-[calc(100lvh-72px)] tablet:h-[calc(100lvh-81px)] flex flex-col gap-6"
+        class="basePadding-y pl-3 mobile-big:pl-4 overflow-auto h-[calc(100lvh-57px)] mobile-big:h-[calc(100lvh-72px)] tablet:h-[calc(100lvh-81px)] flex flex-col gap-6"
       >
         <ul class="items-list flex flex-col gap-3 pr-3 mobile-big:pr-4">
           <li v-for="(item, index) in [1, 2, 4, 5, 6, 7, 8]" :key="index">
@@ -62,10 +62,6 @@ const { items } = useCartStore();
 <style lang="scss" scoped>
 @use "~/assets/css/components" as *;
 
-
-
-
-
 .items-list {
   @include break(720px) {
     display: grid;
@@ -84,7 +80,7 @@ const { items } = useCartStore();
     height: 1px;
     background: linear-gradient(to right, $primary-black-300 50%, transparent 50%);
     background-size: 10px 100%;
-    width: calc(100% + 24px);
+    width: calc(100% + 12px);
     transform: translateX(-12px);
     margin: 0;
   }

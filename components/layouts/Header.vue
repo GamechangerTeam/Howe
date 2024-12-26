@@ -31,7 +31,7 @@ watch(
     <div
       class="container flex items-center justify-between text-xs mobile:text-base mobile-big:text-xl"
     >
-      <ul class="hidden tablet-big:flex gap-8 items-center">
+      <ul class="pc-nav hidden tablet-big:flex gap-8 items-center">
         <li>
           <NuxtLink to="/catalog/female">Женское</NuxtLink>
         </li>
@@ -101,12 +101,15 @@ watch(
       }
     }
   }
+  .pc-nav a:hover {
+    text-decoration: underline;
+  }
 
   &__popup {
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100lvh - 50px);
     position: fixed;
-    bottom: -100vh;
+    bottom: -100lvh;
     left: 0;
     transition: bottom 0.5s ease;
     display: flex;
@@ -143,11 +146,11 @@ watch(
     }
 
     @include mobile {
-      height: calc(100vh - 60px);
+      height: calc(100lvh - 60px);
     }
 
     @include tablet {
-      height: calc(100vh - 76px);
+      height: calc(100lvh - 76px);
     }
 
     @include tablet-big {

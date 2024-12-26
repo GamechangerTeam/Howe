@@ -10,6 +10,11 @@ import {
 import RadioGroup from "./ui/radio-group/RadioGroup.vue";
 import RadioGroupItem from "./ui/radio-group/RadioGroupItem.vue";
 
+const sizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+const styles = ["Спортивный", "Классический", "Повседневный"];
+const colors = ["#f5f5f5", "#f00", "#0f0", "#00f", "#ff0", "#f0f", "#0ff"];
+const sorts = ["От меньшего к большему", "От большего к меньшему"];
+
 const tabs = [
   { name: "sex", typeSingle: true, isColor: false, title: "Пол", options: ["Мужской", "Женский"] },
   {
@@ -45,7 +50,65 @@ const tabs = [
 
 <template>
   <aside class="gap-4 items-center hidden tablet:flex">
-    <div class="w-full">
+    <div class="flex gap-4 w-full">
+      <!-- <Select>
+        <SelectTrigger class="select-trigger">
+          <SelectValue placeholder="Размер" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem v-for="size in sizes" :key="size" :value="size">{{ size }}</SelectItem>
+        </SelectContent>
+      </Select>
+
+      <Select>
+        <SelectTrigger class="select-trigger">
+          <SelectValue placeholder="Фасон" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem v-for="style in styles" :key="style" :value="style">{{ style }}</SelectItem>
+        </SelectContent>
+      </Select>
+
+      <Select>
+        <SelectTrigger class="select-trigger">
+          <SelectValue placeholder="Фасон" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem v-for="style in styles" :key="style" :value="style">{{ style }}</SelectItem>
+        </SelectContent>
+      </Select>
+
+      <Select>
+        <SelectTrigger class="select-trigger">
+          <SelectValue placeholder="Цвет">Цвет</SelectValue>
+        </SelectTrigger>
+        <SelectContent :isColor="true">
+          <SelectItem
+            class="!p-2"
+            v-for="color in colors"
+            :key="color"
+            :value="color"
+            :isColor="true"
+            :color="color"
+          ></SelectItem>
+        </SelectContent>
+      </Select>
+
+      <div class="ml-auto flex items-center gap-2">
+        <span class="text-page-color text-sm">Сортировка:</span>
+        <Select defaultValue="maxmin">
+          <SelectTrigger class="select-trigger select-trigger--sort">
+            <SelectValue placeholder="Сортировка" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="maxmin">По возрастанию цены</SelectItem>
+              <SelectItem value="minmax">По уменьшению цены</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div> -->
+
       <NavigationMenu class="w-full max-w-full justify-normal">
         <NavigationMenuList class="gap-4 ml-auto w-full">
           <NavigationMenuItem
@@ -69,7 +132,7 @@ const tabs = [
                   :class="tab.isColor ? '' : 'flex gap-2 items-center text-nowrap'"
                 >
                   <Checkbox :id="option" :color="option" :isColor="tab.isColor" />
-                  <label v-if="!tab.isColor" :for="option" >
+                  <label v-if="!tab.isColor" :for="option">
                     {{ option }}
                   </label>
                 </li>
@@ -97,6 +160,15 @@ const tabs = [
 </template>
 
 <style lang="scss" scoped>
+.select-trigger {
+  width: fit-content;
+  border-radius: 12px;
+  padding: 12px 16px;
+  &--sort {
+    margin-left: auto;
+  }
+}
+
 aside {
   li {
     cursor: pointer;

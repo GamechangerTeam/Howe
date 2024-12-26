@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, reactive } from "vue";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 
@@ -8,6 +8,19 @@ const props = defineProps<{
 }>();
 
 const swiperReady = ref(false);
+
+import { useElementSize } from "@vueuse/core";
+const main = ref<HTMLElement | null>(null);
+const second = ref<HTMLElement | null>(null);
+const mainSlide = useElementSize(main);
+const secondSlide = useElementSize(second);
+
+const cardsInfo = reactive({
+  main: { width: 0, height: 0 },
+  second: { width: 0, height: 0 },
+});
+const ready = ref(false);
+onMounted(() => {});
 
 onMounted(() => {
   const secondSwiper = new Swiper("#second-swiper", {
@@ -45,6 +58,13 @@ onMounted(() => {
   });
 
   setTimeout(() => {
+    cardsInfo.main.width = mainSlide.width.value + 50 || 0;
+    cardsInfo.main.height = mainSlide.height.value + 50 || 0;
+    cardsInfo.second.width = secondSlide.width.value || 0;
+    cardsInfo.second.height = secondSlide.height.value || 0;
+    console.log(secondSlide);
+
+    ready.value = true;
     swiperReady.value = true;
   }, 10);
 });
@@ -75,8 +95,19 @@ onMounted(() => {
       id="main-swiper"
     >
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(slide, index) in props.slides" :key="index">
-          <NuxtImg :src="slide" class="product-swiper-slide" />
+        <div ref="main" class="swiper-slide" v-for="(slide, index) in props.slides" :key="index">
+          <NuxtImg
+            v-if="ready"
+            :src="slide"
+            :width="cardsInfo.main.width"
+            :height="cardsInfo.main.width"
+            :alt="`slide-${index}`"
+            class="product-swiper-slide"
+            placeholder
+            loading="lazy"
+            @load="() => {console.log('asdsad')}"
+          />
+          <Skeleton v-else class="w-full h-full bg-primary-black-100" />
         </div>
       </div>
     </div>
@@ -87,8 +118,18 @@ onMounted(() => {
       id="second-swiper"
     >
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(slide, index) in props.slides" :key="index">
-          <NuxtImg :src="slide" class="product-swiper-slide" />
+        <div class="swiper-slide" ref="second" v-for="(slide, index) in props.slides" :key="index">
+          <NuxtImg
+            v-if="ready"
+            :src="slide"
+            :width="cardsInfo.second.width"
+            :height="cardsInfo.second.width"
+            :alt="`slide-${index}`"
+            loading="lazy"
+            class="product-swiper-slide"
+            placeholder
+          />
+          <Skeleton v-else class="w-full h-full bg-primary-black-100" />
         </div>
       </div>
     </div>
@@ -98,8 +139,8 @@ onMounted(() => {
 <style scoped lang="scss">
 @use "~/assets/css/components" as *;
 .product-swiper-wrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 80% 20%;
   gap: 12px;
   width: calc(100% + 24px);
   transform: translateX(-12px);
@@ -119,7 +160,6 @@ onMounted(() => {
   @include tablet-min {
     min-height: 500px;
     max-height: 500px;
-    display: grid;
     margin-top: 0;
     grid-template-rows: 70% 30%;
   }

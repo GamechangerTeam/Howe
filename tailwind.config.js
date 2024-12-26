@@ -22,46 +22,48 @@ module.exports = {
         DEFAULT: "ease-in-out",
       },
       colors: {
+        "page-color": "var(--page-color)",
         "primary-red": "#C41E40",
         "primary-blue": "#1E37C4",
         "primary-white": "#FCFCFC",
         "primary-white-100": "#F5F5F5",
         "primary-gray": "#EBEBEB",
+        "primary-gray-100": "#bdbdbd",
         "primary-black-100": "#00000012",
         "primary-black-300": "#00000057",
         "primary-black-400": "#8A8A8A",
-        border: "(var(--border))",
-        input: "(var(--input))",
-        ring: "(var(--ring))",
-        background: "(var(--background))",
-        foreground: "(var(--foreground))",
+        border: "(--border)",
+        input: "(--input)",
+        ring: "(--ring)",
+        background: "(--background)",
+        foreground: "(--foreground)",
         primary: {
-          DEFAULT: "(var(--primary))",
-          foreground: "(var(--primary-foreground))",
+          DEFAULT: "(--primary)",
+          foreground: "(--primary-foreground)",
         },
         secondary: {
-          DEFAULT: "(var(--secondary))",
-          foreground: "(var(--secondary-foreground))",
+          DEFAULT: "(--secondary)",
+          foreground: "(--secondary-foreground)",
         },
         destructive: {
-          DEFAULT: "(var(--destructive))",
-          foreground: "(var(--destructive-foreground))",
+          DEFAULT: "(--destructive)",
+          foreground: "(--destructive-foreground)",
         },
         muted: {
-          DEFAULT: "(var(--muted))",
-          foreground: "(var(--muted-foreground))",
+          DEFAULT: "#00000012",
+          foreground: "(--muted-foreground)",
         },
         accent: {
-          DEFAULT: "(var(--accent))",
-          foreground: "(var(--accent-foreground))",
+          DEFAULT: "(--accent)",
+          foreground: "(--accent-foreground)",
         },
         popover: {
-          DEFAULT: "(var(--popover))",
-          foreground: "(var(--popover-foreground))",
+          DEFAULT: "(--popover)",
+          foreground: "(--popover-foreground)",
         },
         card: {
-          DEFAULT: "(var(--card))",
-          foreground: "(var(--card-foreground))",
+          DEFAULT: "(--card)",
+          foreground: "(--card-foreground)",
         },
       },
       borderRadius: {
@@ -95,6 +97,8 @@ module.exports = {
         "collapsible-up": "collapsible-up 0.2s ease-in-out",
       },
       backgroundImage: {
+        "page-color": "var(--page-color-bg)",
+
         "primary-blue-gradient":
           "radial-gradient(100.51% 124.04% at 50% 4.99%, #1E37C4 0%, #6F85FF 100%)",
         "primary-black-gradient":

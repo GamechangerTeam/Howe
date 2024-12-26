@@ -11,14 +11,12 @@ const props = defineProps<{
 const popupStore = usePopupStore();
 const isPopupVisible = ref<boolean>(false);
 
-// Проверяем состояние popup
 const checkPopupState = () => {
   if (props.name === popupStore.name) {
     isPopupVisible.value = popupStore.isOpen;
   }
 };
 
-// Следим за изменением состояния popup
 watch(
   () => popupStore.isOpen,
   (isOpen) => {
@@ -30,8 +28,6 @@ watch(
     } else {
       document.body.style.overflow = "";
     }
-    console.log('asdsads');
-    
   }
 );
 </script>
@@ -39,7 +35,7 @@ watch(
 <template>
   <div
     v-if="props.variants === 'cart'"
-    class="popup w-full fixed z-50 top-0 bg-primary-white duration-300 ease-in-out"
+    class="popup w-full fixed z-50 top-0 bg-primary-white duration-500"
     :class="[props.class, { 'right-0': isPopupVisible, '-right-full': !isPopupVisible }]"
   >
     <slot></slot>
@@ -52,7 +48,7 @@ watch(
   <div
     v-else
     class="popup w-full fixed z-50 left-0 bg-primary-white duration-300 ease-in-out"
-    :class="[props.class, { 'bottom-0': isPopupVisible, '-bottom-full': !isPopupVisible }]"
+    :class="[props.class, { 'bottom-0': isPopupVisible, '-bottom-[120lvh]': !isPopupVisible }]"
   >
     <slot></slot>
   </div>

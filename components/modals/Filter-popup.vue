@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/accordion";
 
 const props = defineProps<{
-  color: string;
   clotheStyles: string[];
   colors: string[];
   sizes: string[];
@@ -33,8 +32,8 @@ const popupStore = usePopupStore();
     >
       <X />
     </Button>
-    <p class="basePadding text-4xl mt-4 mb-3" :class="color">Фильтр</p>
-    
+    <p class="basePadding text-4xl mt-4 mb-3 text-page-color">Фильтр</p>
+
     <Accordion type="multiple" class="w-full h-full overflow-y-auto" collapsible>
       <AccordionItem value="Пол">
         <AccordionTrigger>Пол</AccordionTrigger>
@@ -68,8 +67,13 @@ const popupStore = usePopupStore();
       <AccordionItem value="цвет">
         <AccordionTrigger>Цвет</AccordionTrigger>
         <AccordionContent class="pt-5 flex gap-2 flex-wrap">
-          <div v-for="color in props.colors" :key="color" class="flex items-center gap-2">
-            <Checkbox :id="color" :color="color" />
+          <div
+            v-for="color in props.colors"
+            
+            :key="color"
+            class="flex items-center gap-2"
+          >
+            <Checkbox :id="color" :color="color" :isColor="true" />
           </div>
         </AccordionContent>
       </AccordionItem>

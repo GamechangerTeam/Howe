@@ -3,8 +3,8 @@
     <div class="relative">
       <div class="container">
         <div class="fullHeight">
-          <h2 class="text-primary-black-300 mb-6">
-            “Каждая деталь имеет значение — <i>мы создаем будущее</i> , соединяя <i>качество</i> и
+          <h2 class="text-primary-gray-100 mb-6  font-light ">
+            “Каждая деталь имеет значение — <i>мы создаем будущее</i>, соединяя <i>качество</i> и
             <i>инновации”</i>
           </h2>
           <Button asChild variant="whiteOutline">

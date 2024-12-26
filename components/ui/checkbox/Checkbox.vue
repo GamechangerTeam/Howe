@@ -27,7 +27,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   <CheckboxRoot
     v-bind="forwarded"
     :class="cn(
-      'peer h-[20px] w-[20px] flex items-center justify-center shrink-0 rounded-full border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
+      'peer h-[24px] w-[24px] flex items-center justify-center shrink-0 rounded-full border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
       props.class,
       { 'border-primary-black-300': props.color }
     )"
@@ -45,7 +45,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       <slot>
         <Check
           v-if="props.isColor || props.isSquare"
-          :size="14"
+          :size="16"
           :strokeWidth="3"
           color="#fff"
         />

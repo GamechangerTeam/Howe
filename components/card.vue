@@ -1,12 +1,32 @@
 <script lang="ts" setup>
 import type { CardTypes } from "~/types/card";
-
+import { ref } from "vue";
 const { data } = defineProps<{ data: CardTypes }>();
+import { useElementSize } from "@vueuse/core";
+const blockRef = ref<HTMLElement | null>(null);
+const cardInfo = useElementSize(blockRef);
+const width = ref(0);
+const height = ref(0);
+const ready = ref(false);
+onMounted(() => {
+  width.value = cardInfo.width.value;
+  height.value = cardInfo.height.value;
+  console.log(cardInfo.width.value);
+  ready.value = true;
+});
 </script>
 
 <template>
-  <div class="card">
-    <NuxtImg class="card__img" :src="data.img" width="320" height="450" />
+  <div class="card" ref="blockRef">
+    <NuxtImg
+      v-if="ready"
+      class="card__img"
+      :width="width"
+      :height="height"
+      :src="data.img"
+      loading="lazy"
+    />
+    <Skeleton v-else class="h-full w-full" />
     <div class="card__info">
       <h4 class="card__title">
         {{ data.name }}
@@ -41,6 +61,7 @@ const { data } = defineProps<{ data: CardTypes }>();
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  aspect-ratio: 2/3;
   height: 100%;
   width: 100%;
 
@@ -51,6 +72,7 @@ const { data } = defineProps<{ data: CardTypes }>();
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    aspect-ratio: 2/3;
   }
 
   &__info {

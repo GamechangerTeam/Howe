@@ -9,7 +9,7 @@ const props = defineProps<{
   slides: CardTypes[];
   className: string;
   id: string;
-  manySlides?: boolean
+  manySlides?: boolean;
 }>();
 
 onMounted(() => {
@@ -21,32 +21,32 @@ onMounted(() => {
     speed: 600,
     breakpoints: {
       960: {
-        slidesPerView: props.manySlides ? 6.2  : 3.2,
+        slidesPerView: props.manySlides ? 6.2 : 3.2,
         centeredSlides: false,
         spaceBetween: 20,
       },
       768: {
-        slidesPerView: props.manySlides ? 5.2  : 2.2,
+        slidesPerView: props.manySlides ? 5.2 : 2.2,
         centeredSlides: false,
         spaceBetween: 20,
       },
       601: {
-        slidesPerView: props.manySlides ? 4.2  : 1.5,
+        slidesPerView: props.manySlides ? 4.2 : 1.5,
         centeredSlides: false,
         spaceBetween: 20,
-      }, 
+      },
       526: {
-        slidesPerView: props.manySlides ? 3.2  : 1.5,
+        slidesPerView: props.manySlides ? 3.2 : 1.5,
         centeredSlides: false,
         spaceBetween: 20,
-      } ,
+      },
       431: {
-        slidesPerView: props.manySlides ? 2.5  : 1.5,
+        slidesPerView: props.manySlides ? 2.5 : 1.5,
         centeredSlides: false,
         spaceBetween: 20,
       },
       376: {
-        slidesPerView: props.manySlides ? 2.2  : 1.2,
+        slidesPerView: props.manySlides ? 2.2 : 1.2,
         centeredSlides: true,
         spaceBetween: 20,
       },
@@ -108,7 +108,7 @@ onMounted(() => {
   }
 
   .swiper-button-disabled {
-    opacity: 0;
+    opacity: 0 !important;
   }
 }
 </style>

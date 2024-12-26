@@ -103,7 +103,7 @@
   }
 
   .fullHeight {
-    @apply h-[calc(100vh-50px)] tablet:h-[calc(100vh-76px)] mobile:h-[calc(100vh-60px)];
+    @apply h-[calc(100lvh-50px)] tablet:h-[calc(100lvh-76px)] mobile:h-[calc(100lvh-60px)];
   }
 
   .basePadding {

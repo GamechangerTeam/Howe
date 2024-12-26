@@ -7,15 +7,15 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "nuxt-swiper",
     "@pinia/nuxt",
-    "@vueuse/nuxt"
+    "@vueuse/nuxt",
   ],
   devtools: { enabled: false },
   compatibilityDate: "2024-12-19",
   css: ["~/assets/css/tailwind.scss", "~/assets/css/globals.scss"],
   typescript: {
-    typeCheck: true
+    typeCheck: true,
   },
-  
+
   // ssr: false,
   // app: {
   //   baseURL: "/Howe",
