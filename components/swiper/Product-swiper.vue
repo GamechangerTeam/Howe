@@ -158,8 +158,8 @@ onMounted(() => {
   }
 
   @include tablet-min {
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 600px;
+    max-height: 600px;
     margin-top: 0;
     grid-template-rows: 70% 30%;
   }

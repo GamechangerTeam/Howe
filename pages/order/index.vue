@@ -61,7 +61,7 @@ const { items } = useCartStore();
   <div class="container" id="order-page">
     <form @submit="onSubmit" class="flex relative flex-col gap-4 tablet:grid tablet:grid-cols-2 tablet-big:gap-8 laptop:gap-20 ">
       <div class="flex flex-col gap-4 tablet:sticky tablet:top-[100px] tablet:h-fit">
-        <h1 class="text-4xl mb-2">Контакт dd</h1>
+        <h1 class="text-4xl mb-2">Контакт</h1>
         <FormField v-slot="{ field, errors }" name="phone" :validate-on-blur="!isFieldDirty">
           <FormItem>
             <Input class="text-black" type="number" placeholder="Номер телефона" v-bind="field" />
@@ -284,8 +284,6 @@ const { items } = useCartStore();
     @include pc {
       flex-direction: row;
     }
-  }
-  #order-recommendation {
   }
   .line {
     width: 100%;

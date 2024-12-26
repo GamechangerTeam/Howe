@@ -7,9 +7,7 @@ import {
 } from "radix-vue";
 import { computed, type HTMLAttributes } from "vue";
 
-const props = defineProps<
-  NavigationMenuViewportProps & { class?: HTMLAttributes["class"];  }
->();
+const props = defineProps<NavigationMenuViewportProps & { class?: HTMLAttributes["class"] }>();
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;
@@ -21,7 +19,9 @@ const forwardedProps = useForwardProps(delegatedProps);
 </script>
 
 <template>
-  <div class="filter-navigation-menu absolute left-0 top-full rounded-md bg-primary-white">
+  <div
+    class="filter-navigation-menu absolute left-0 top-full rounded-md data-[state=open]:bg-primary-white data-[state=closed]:bg-red-200"
+  >
     <NavigationMenuViewport
       v-bind="forwardedProps"
       :class="

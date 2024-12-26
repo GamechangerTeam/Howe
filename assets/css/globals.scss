@@ -28,9 +28,6 @@ html {
   background: #fcfcfc !important;
 }
 
-* {
-  font-family: "Magnet", Tahoma, Geneva, Verdana, sans-serif;
-}
 
 :root {
   --page-color: #c41e40;
@@ -61,6 +58,9 @@ html {
 }
 
 * {
+  font-family: "Magnet", Tahoma, Geneva, Verdana, sans-serif;
+  scroll-margin-top: 76px;
+  scroll-behavior: smooth;
   box-sizing: border-box;
   &::-webkit-scrollbar {
     position: absolute !important;

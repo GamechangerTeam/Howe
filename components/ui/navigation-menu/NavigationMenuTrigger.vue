@@ -6,7 +6,7 @@ import { computed, type HTMLAttributes } from "vue";
 import { navigationMenuTriggerStyle } from ".";
 
 const props = defineProps<
-  NavigationMenuTriggerProps & { class?: HTMLAttributes["class"]; index?: number }
+  NavigationMenuTriggerProps & { class?: HTMLAttributes["class"]; index?: string }
 >();
 
 const delegatedProps = computed(() => {
@@ -22,6 +22,8 @@ import { onMounted } from "vue";
 const handleInteraction = (event: Event) => {
   const target = event.target as HTMLElement;
   const position = target.dataset.catalogMenuPosition || "0";
+  console.log(position);
+
   if (position) {
     document.documentElement.style.setProperty("--catalog-menu-position", position);
   }
@@ -40,7 +42,7 @@ onMounted(() => {
   <NavigationMenuTrigger
     v-bind="forwardedProps"
     :class="cn(navigationMenuTriggerStyle(), props.class)"
-    :data-catalog-menu-position="`${(index ? index : 0) * 100}px`"
+    :data-catalog-menu-position="`${index}`"
   >
     <slot />
     <ChevronDown

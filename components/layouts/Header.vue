@@ -39,11 +39,11 @@ watch(
           <NuxtLink to="/catalog/male">Мужское</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/product/male/xyi">Новинки и акции</NuxtLink>
+          <NuxtLink to="/#news">Новинки и акции</NuxtLink>
         </li>
       </ul>
 
-      <button class="flex gap-2 items-center tablet-big:hidden" @click="popupHandler">
+      <button class="flex gap-2 items-center tablet-big:hidden " @click="popupHandler">
         <span class="header__close-btn" :class="{ active: isHeaderOpen }" />
         {{ isHeaderOpen ? "Закрыть" : "Меню" }}
       </button>

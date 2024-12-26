@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-vue-next";
 </script>
 
 <template>
-  <section class="container product min-h-[500px] fullHeight items-start">
+  <section id="news" class="container product min-h-[500px] fullHeight items-start">
     <SwiperNewItemsSwiper>
       <div class="swiper-slide">
         <article class="flex flex-col h-full justify-between relative">

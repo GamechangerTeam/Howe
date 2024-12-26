@@ -16,13 +16,13 @@ const colors = ["#f5f5f5", "#f00", "#0f0", "#00f", "#ff0", "#f0f", "#0ff"];
 const sorts = ["От меньшего к большему", "От большего к меньшему"];
 
 const tabs = [
-  { name: "sex", typeSingle: true, isColor: false, title: "Пол", options: ["Мужской", "Женский"] },
   {
     name: "sizes",
     typeSingle: false,
     title: "Размер",
     options: ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"],
     isColor: false,
+    left: "0px",
   },
   {
     name: "style",
@@ -30,6 +30,7 @@ const tabs = [
     title: "Фасон",
     options: ["Спортивный", "Классический", "Повседневный"],
     isColor: false,
+    left: "120px",
   },
   {
     name: "color",
@@ -37,6 +38,7 @@ const tabs = [
     options: ["#000", "#f5f5f5", "#f00", "#0f0", "#00f", "#ff0", "#f0f", "#0ff"],
     typeSingle: false,
     isColor: true,
+    left: "230px",
   },
   {
     name: "sort",
@@ -44,6 +46,7 @@ const tabs = [
     options: ["От меньшего к большему", "От большего к меньшему"],
     typeSingle: true,
     isColor: false,
+    left: "330px",
   },
 ];
 </script>
@@ -116,7 +119,7 @@ const tabs = [
             :key="index"
             :class="index === tabs.length - 1 ? 'ml-auto' : ''"
           >
-            <NavigationMenuTrigger class="border border-primary-black-100" :index="index">
+            <NavigationMenuTrigger class="border border-primary-black-100" :index="tab.left">
               {{ tab.title }}
             </NavigationMenuTrigger>
             <NavigationMenuContent class="border-primary-black-100">

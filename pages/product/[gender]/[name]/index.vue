@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { ArrowRight } from "lucide-vue-next";
-import { ref } from "vue";
+import { useRoute } from "vue-router";
+import { ref, onMounted, watch } from "vue";
 import type { CardTypes } from "~/types/card";
 definePageMeta({
   middleware: "check-gender",
 });
+
+const route = useRoute();
+const gender = route.params.gender;
 
 const images = [
   "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
@@ -14,6 +18,9 @@ const images = [
   "/images/products/man/top/robe-WH/robe-wh-asian-3.jpg",
   "/images/products/man/top/robe-WH/robe-wh-asian-3.jpg",
 ];
+
+
+
 
 const activeImg = ref(0);
 
@@ -103,7 +110,7 @@ const slides: CardTypes[] = [
     <div class="flex items-center gap-2 text-xs tablet-min:hidden">
       <NuxtLink to="/"> Главная </NuxtLink>
       <ArrowRight :size="14" />
-      <NuxtLink to="/"> Мужское </NuxtLink>
+      <NuxtLink :to="`/catalog/${gender}`"> {{ gender === "male" ? "Мужское" : "Женское" }}  </NuxtLink>
       <ArrowRight :size="14" />
 
       Название
@@ -114,7 +121,8 @@ const slides: CardTypes[] = [
         <div class="hidden items-center gap-2 text-xs tablet-min:flex tablet-min:text-sm">
           <NuxtLink to="/"> Главная </NuxtLink>
           <ArrowRight :size="14" />
-          <NuxtLink to="/catalog/male"> Мужское </NuxtLink>
+          <NuxtLink :to="`/catalog/${gender}`"> {{ gender === "male" ? "Мужское" : "Женское" }} </NuxtLink>
+
           <ArrowRight :size="14" />
 
           Название
@@ -160,7 +168,7 @@ const slides: CardTypes[] = [
           </ToggleGroup>
         </div>
         <hr class="border-dashed border-1 border-primary-black-300 my-2 laptop:my-4" />
-        <NumberField class="mx-auto" id="age" :default-value="1" :min="0">
+        <NumberField class="mx-auto" id="age" :default-value="1" :min="1">
           <NumberFieldContent>
             <NumberFieldDecrement />
             <NumberFieldInput />
@@ -168,9 +176,11 @@ const slides: CardTypes[] = [
           </NumberFieldContent>
         </NumberField>
         <div class="flex flex-col gap-4 justify-center items-center pc:flex-row">
-          <Button class="text-md">
-            <NuxtImg src="/icons/bill.svg" alt="Купить товар" height="20" width="20" />
-            Оформить
+          <Button class="text-md" asChild>
+            <NuxtLink to="/order">
+              <NuxtImg src="/icons/bill.svg" alt="Купить товар" height="20" width="20" />
+              Оформить
+            </NuxtLink>
           </Button>
           <Button variant="black" class="text-md">
             <NuxtImg src="/icons/overlay-logo.svg" alt="Купить товар" height="20" width="20" />

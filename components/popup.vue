@@ -35,7 +35,7 @@ watch(
 <template>
   <div
     v-if="props.variants === 'cart'"
-    class="popup w-full fixed z-50 top-0 bg-primary-white duration-500"
+    class="popup w-full fixed z-50 top-0 bg-primary-white"
     :class="[props.class, { 'right-0': isPopupVisible, '-right-full': !isPopupVisible }]"
   >
     <slot></slot>
@@ -47,7 +47,7 @@ watch(
   </div>
   <div
     v-else
-    class="popup w-full fixed z-50 left-0 bg-primary-white duration-300 ease-in-out"
+    class="popup w-full fixed z-50 left-0 bg-primary-white "
     :class="[props.class, { 'bottom-0': isPopupVisible, '-bottom-[120lvh]': !isPopupVisible }]"
   >
     <slot></slot>
@@ -56,6 +56,10 @@ watch(
 
 <style lang="scss" scoped>
 @use "~/assets/css/components" as *;
+
+.popup {
+  transition: bottom .3s ease, right .3s ease,;
+}
 
 .popup--cart__bg {
   width: 100%;
