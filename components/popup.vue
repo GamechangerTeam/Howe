@@ -21,10 +21,8 @@ watch(
   () => popupStore.isOpen,
   (isOpen) => {
     checkPopupState();
-    if (isOpen && props.name === popupStore.name) {
-      if (window.innerWidth < 768 || props.variants === "cart") {
-        document.body.style.overflow = "hidden";
-      }
+    if (isOpen ) {
+      document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
@@ -47,7 +45,7 @@ watch(
   </div>
   <div
     v-else
-    class="popup w-full fixed z-50 left-0 bg-primary-white "
+    class="popup w-full fixed z-50 left-0 bg-primary-white"
     :class="[props.class, { 'bottom-0': isPopupVisible, '-bottom-[120lvh]': !isPopupVisible }]"
   >
     <slot></slot>
@@ -58,7 +56,7 @@ watch(
 @use "~/assets/css/components" as *;
 
 .popup {
-  transition: bottom .3s ease, right .3s ease,;
+  transition: bottom 0.3s ease, right 0.3s ease;
 }
 
 .popup--cart__bg {

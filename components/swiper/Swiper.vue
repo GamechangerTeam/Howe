@@ -83,6 +83,7 @@ onMounted(() => {
   height: 100%;
   overflow: hidden;
   position: relative;
+
   .swiper-button-prev,
   .swiper-button-next {
     color: black;
@@ -112,3 +113,30 @@ onMounted(() => {
   }
 }
 </style>
+
+<!-- @include pc {
+
+  &::before {
+    content: '';
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background-color: red;
+    z-index: 2;
+    background: linear-gradient(90deg, $primary-white 0%,  rgba(0, 0, 0, 0));
+  }
+
+  &::after {
+    content: '';
+    position:absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background-color: red;
+    z-index: 2;
+    background: linear-gradient(-90deg, $primary-white 0%,  rgba(0, 0, 0, 0));
+  }
+} -->

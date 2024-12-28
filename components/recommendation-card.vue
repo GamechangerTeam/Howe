@@ -3,7 +3,7 @@ import { ShoppingCart, Trash2 } from "lucide-vue-next";
 </script>
 
 <template>
-  <div class="flex gap-3">
+  <NuxtLink to="/product/male/xyi" class="flex gap-3">
     <div
       class="mobile-min:max-w-32 mobile-min:h-44 w-24 h-36 rounded-[8px] overflow-hidden flex-shrink-0 flex-grow"
     >
@@ -19,7 +19,7 @@ import { ShoppingCart, Trash2 } from "lucide-vue-next";
       <p class="text-sm text-primary-black-300">Фасон:</p>
       <div class="btns-wrapper mt-3 flex flex-col gap-3 w-full mobile-big:flex-row">
         <Select>
-          <SelectTrigger class="flex-1 max-w-[156px] mobile-min:max-w-none">
+          <SelectTrigger class="flex-1 max-w-[160px] mobile-min:max-w-none">
             <SelectValue placeholder="Select a fruit" />
           </SelectTrigger>
           <SelectContent class="bg-primary-white">
@@ -32,13 +32,13 @@ import { ShoppingCart, Trash2 } from "lucide-vue-next";
             </SelectGroup>
           </SelectContent>
         </Select>
-        <Button size="sm" class="flex-1 max-w-[156px] mobile-min:max-w-none">
+        <Button size="sm" class="flex-1 max-w-[160px] gap-1 mobile-min:gap-3 mobile-min:max-w-none">
           <ShoppingCart :size="20" />
           Добавить в корзину
         </Button>
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>

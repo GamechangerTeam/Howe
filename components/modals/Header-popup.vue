@@ -14,7 +14,7 @@ const popupHandler = () => {
 </script>
 
 <template>
-  <Popup name="header" class="fullHeight flex flex-col tablet-big:hidden">
+  <Popup name="header" class="fullHeight overflow-y-auto flex flex-col tablet-big:hidden">
     <ul class="flex flex-col text-5xl">
       <li
         class="relative border-t-2 border-dashed border-black py-4 px-3 last:border-b-2 last:border-dashed"
@@ -65,9 +65,11 @@ const popupHandler = () => {
           <img src="/icons/youtube.svg" alt="youtube" />
         </a>
       </div>
-      <Button>
-        <NuxtImg src="/icons/bill.svg" alt="Оформить покупку" width="22" height="22" />
-        Оформить
+      <Button asChild @click="popupHandler">
+        <NuxtLink to="/order">
+          <NuxtImg src="/icons/bill.svg" alt="Оформить покупку" width="22" height="22" />
+          Оформить
+        </NuxtLink>
       </Button>
     </div>
   </Popup>

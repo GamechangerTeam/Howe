@@ -13,14 +13,16 @@ import { ArrowRight } from "lucide-vue-next";
           </div>
           <NuxtImg class="absolute z-[-2] object-cover w-full h-full" src="/images/kargo.png" />
           <div class="basePadding group">
-            <Button variant="white">
-              <nuxt-link to="/">Заказать</nuxt-link>
-              <ArrowRight
-                :stroke-width="1.5"
-                :size="20"
-                class="group-hover:-rotate-45"
-                color="black"
-              />
+            <Button variant="white" asChild>
+              <NuxtLink to="/product/male/xui" class="flex items-center gap-2">
+                Заказать
+                <ArrowRight
+                  :stroke-width="1.5"
+                  :size="20"
+                  class="group-hover:-rotate-45"
+                  color="black"
+                />
+              </NuxtLink>
             </Button>
           </div>
         </article>
@@ -35,14 +37,16 @@ import { ArrowRight } from "lucide-vue-next";
           </div>
           <NuxtImg class="absolute z-[-2] object-cover w-full h-full" src="/images/kargo.png" />
           <div class="basePadding group">
-            <Button variant="white">
-              <nuxt-link to="/">Заказать</nuxt-link>
-              <ArrowRight
-                :stroke-width="1.5"
-                :size="20"
-                class="group-hover:-rotate-45"
-                color="black"
-              />
+            <Button variant="white" asChild>
+              <NuxtLink to="/product/male/xui" class="flex items-center gap-2">
+                Заказать
+                <ArrowRight
+                  :stroke-width="1.5"
+                  :size="20"
+                  class="group-hover:-rotate-45"
+                  color="black"
+                />
+              </NuxtLink>
             </Button>
           </div>
         </article>

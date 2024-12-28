@@ -141,7 +141,12 @@ const itemsList = [
         Фильтры
       </button>
     </div>
-    <CatalogFilter />
+    <CatalogFilter 
+    :sizes="sizes"
+    :clotheStyles="clotheStyles"
+    :colors="colors"
+    :sex="sex"
+    :sort="sort" />
 
     <ModalsFilterPopup
       :sizes="sizes"

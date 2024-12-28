@@ -19,9 +19,6 @@ const images = [
   "/images/products/man/top/robe-WH/robe-wh-asian-3.jpg",
 ];
 
-
-
-
 const activeImg = ref(0);
 
 const onSlideChange = (e: number) => {
@@ -108,9 +105,11 @@ const slides: CardTypes[] = [
 <template>
   <div class="container">
     <div class="flex items-center gap-2 text-xs tablet-min:hidden">
-      <NuxtLink to="/"> Главная </NuxtLink>
+      <NuxtLink to="/" class="hover:border-b-1"> Главная </NuxtLink>
       <ArrowRight :size="14" />
-      <NuxtLink :to="`/catalog/${gender}`"> {{ gender === "male" ? "Мужское" : "Женское" }}  </NuxtLink>
+      <NuxtLink :to="`/catalog/${gender}`">
+        {{ gender === "male" ? "Мужское" : "Женское" }}
+      </NuxtLink>
       <ArrowRight :size="14" />
 
       Название
@@ -121,7 +120,9 @@ const slides: CardTypes[] = [
         <div class="hidden items-center gap-2 text-xs tablet-min:flex tablet-min:text-sm">
           <NuxtLink to="/"> Главная </NuxtLink>
           <ArrowRight :size="14" />
-          <NuxtLink :to="`/catalog/${gender}`"> {{ gender === "male" ? "Мужское" : "Женское" }} </NuxtLink>
+          <NuxtLink :to="`/catalog/${gender}`">
+            {{ gender === "male" ? "Мужское" : "Женское" }}
+          </NuxtLink>
 
           <ArrowRight :size="14" />
 
@@ -237,6 +238,7 @@ const slides: CardTypes[] = [
 #rec-block-swiper {
   width: calc(100% + 24px);
   transform: translateX(-12px);
+
   @include mobile {
     width: calc(100% + 32px);
     transform: translateX(-16px);

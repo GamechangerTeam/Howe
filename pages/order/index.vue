@@ -59,7 +59,10 @@ const { items } = useCartStore();
 
 <template>
   <div class="container" id="order-page">
-    <form @submit="onSubmit" class="flex relative flex-col gap-4 tablet:grid tablet:grid-cols-2 tablet-big:gap-8 laptop:gap-20 ">
+    <form
+      @submit="onSubmit"
+      class="flex relative flex-col gap-4 tablet:grid tablet:grid-cols-2 tablet-big:gap-8 laptop:gap-20"
+    >
       <div class="flex flex-col gap-4 tablet:sticky tablet:top-[100px] tablet:h-fit">
         <h1 class="text-4xl mb-2">Контакт</h1>
         <FormField v-slot="{ field, errors }" name="phone" :validate-on-blur="!isFieldDirty">
@@ -203,7 +206,9 @@ const { items } = useCartStore();
         >
       </div>
 
-      <div class="flex flex-col gap-4 mt-20 bg-primary-white-100 rounded-[12px] basePadding tablet:m-0 tablet:px-4 ">
+      <div
+        class="flex flex-col gap-4 mt-20 bg-primary-white-100 rounded-[12px] basePadding tablet:m-0 tablet:px-4"
+      >
         <ul class="flex flex-col gap-3 mobile-big:grid mobile-big:grid-cols-2 tablet:flex pc:grid">
           <li>
             <CartItem />
@@ -263,6 +268,14 @@ const { items } = useCartStore();
 @use "~/assets/css/components" as *;
 
 #order-page {
+  #order-recommendation {
+    width: calc(100% + 24px) !important;
+    @include tablet {
+      transform: translateX(-16px) !important ;
+      width: calc(100% + 32px) !important;
+    }
+  }
+
   .delivery-wrapper {
     @include mobile {
       display: grid;
@@ -277,7 +290,7 @@ const { items } = useCartStore();
       }
     }
   }
-  .btns-wrapper  {
+  .btns-wrapper {
     @include tablet {
       flex-direction: column;
     }

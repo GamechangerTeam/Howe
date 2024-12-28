@@ -6,7 +6,7 @@ import { computed, type HTMLAttributes } from "vue";
 import { navigationMenuTriggerStyle } from ".";
 
 const props = defineProps<
-  NavigationMenuTriggerProps & { class?: HTMLAttributes["class"]; index?: string }
+  NavigationMenuTriggerProps & { class?: HTMLAttributes["class"]; left?: string }
 >();
 
 const delegatedProps = computed(() => {
@@ -42,11 +42,13 @@ onMounted(() => {
   <NavigationMenuTrigger
     v-bind="forwardedProps"
     :class="cn(navigationMenuTriggerStyle(), props.class)"
-    :data-catalog-menu-position="`${index}`"
+    :data-catalog-menu-position="`${left}`"
+    class="gap-2"
   >
     <slot />
+
     <ChevronDown
-      class="relative pointer-events-none top-px ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+      class="w-4 h-4 opacity-50 shrink-0 transition duration-200 group-data-[state=open]:rotate-180 pointer-events-none"
       aria-hidden="true"
     />
   </NavigationMenuTrigger>

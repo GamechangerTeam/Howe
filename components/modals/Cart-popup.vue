@@ -62,6 +62,13 @@ const { items } = useCartStore();
 <style lang="scss" scoped>
 @use "~/assets/css/components" as *;
 
+#recommendation-swiper {
+  @include mobile-big {
+    width: calc(100% + 16px) !important;
+    transform: translateX(-16px) !important;
+  }
+}
+
 .items-list {
   @include break(720px) {
     display: grid;

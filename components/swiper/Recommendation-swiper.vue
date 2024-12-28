@@ -63,8 +63,7 @@ onMounted(() => {
   padding-bottom: 20px;
   width: calc(100% + 12px) !important;
   transform: translateX(-12px) !important;
-  @include mobile-big {
-  }
+
 
   .swiper-button-prev,
   .swiper-button-next {

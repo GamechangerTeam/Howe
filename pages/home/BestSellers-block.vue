@@ -21,7 +21,7 @@ const props = defineProps<{
       <span class="colored-text">{{ props.sex === "male" ? "Мужские" : "Женские" }}</span>
       бестселлеры
     </h2>
-    <div class="basePadding-x max-w-mobileBig mx-auto mt-5 hidden tablet:block">
+    <div class="basePadding-x !pl-0 max-w-mobileBig mx-auto hidden tablet:block ">
       <Button asChild class="group" variant="whiteWithBorder">
         <NuxtLink :to="props.sex === 'male' ? '/catalog/male' : '/catalog/female'">
           Смотреть
@@ -74,7 +74,7 @@ const props = defineProps<{
     display: grid;
     grid-template: auto / 1fr auto;
     align-items: center;
-    gap: 40px;
+    row-gap: 40px;
   }
 
   &__swiper {

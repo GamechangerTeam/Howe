@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import Checkbox from "./ui/checkbox/Checkbox.vue";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "./ui/navigation-menu";
-import RadioGroup from "./ui/radio-group/RadioGroup.vue";
-import RadioGroupItem from "./ui/radio-group/RadioGroupItem.vue";
-
-const sizes = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"];
-const styles = ["Спортивный", "Классический", "Повседневный"];
-const colors = ["#f5f5f5", "#f00", "#0f0", "#00f", "#ff0", "#f0f", "#0ff"];
-const sorts = ["От меньшего к большему", "От большего к меньшему"];
-
+import { useActiveFilters } from "~/store/active-filters";
+const props = defineProps<{
+  clotheStyles: string[];
+  colors: string[];
+  sizes: string[];
+  sort: string[];
+  sex: string[];
+}>();
+const activeFilters = useActiveFilters();
 const tabs = [
   {
     name: "sizes",
@@ -54,124 +47,102 @@ const tabs = [
 <template>
   <aside class="gap-4 items-center hidden tablet:flex">
     <div class="flex gap-4 w-full">
-      <!-- <Select>
-        <SelectTrigger class="select-trigger">
-          <SelectValue placeholder="Размер" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem v-for="size in sizes" :key="size" :value="size">{{ size }}</SelectItem>
-        </SelectContent>
-      </Select>
+      <NavigationMenu class="w-full max-w-full justify-normal">
+        <NavigationMenuList class="gap-4 ml-auto w-full">
+          <!-- Размер -->
+          <NavigationMenuItem>
+            <NavigationMenuTrigger class="border border-primary-black-100" left="0px">
+              Размер
+            </NavigationMenuTrigger>
 
-      <Select>
-        <SelectTrigger class="select-trigger">
-          <SelectValue placeholder="Фасон" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem v-for="style in styles" :key="style" :value="style">{{ style }}</SelectItem>
-        </SelectContent>
-      </Select>
+            <NavigationMenuContent class="border-primary-black-100">
+              <ul class="p-4 flex flex-col gap-3">
+                <li
+                  v-for="size in props.sizes"
+                  :key="size"
+                  class="flex gap-2 items-center text-nowrap"
+                >
+                  <Checkbox
+                    :id="size"
+                    :checked="activeFilters.selectedSizes.includes(size)"
+                    @update:checked="(e) => activeFilters.sizesHandler(e, size)"
+                  />
+                  <label :for="size">
+                    {{ size }}
+                  </label>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
-      <Select>
-        <SelectTrigger class="select-trigger">
-          <SelectValue placeholder="Фасон" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem v-for="style in styles" :key="style" :value="style">{{ style }}</SelectItem>
-        </SelectContent>
-      </Select>
+          <!-- Фасон -->
+          <NavigationMenuItem>
+            <NavigationMenuTrigger class="border border-primary-black-100" left="120px">
+              Фасон
+            </NavigationMenuTrigger>
 
-      <Select>
-        <SelectTrigger class="select-trigger">
-          <SelectValue placeholder="Цвет">Цвет</SelectValue>
-        </SelectTrigger>
-        <SelectContent :isColor="true">
-          <SelectItem
-            class="!p-2"
-            v-for="color in colors"
-            :key="color"
-            :value="color"
-            :isColor="true"
-            :color="color"
-          ></SelectItem>
-        </SelectContent>
-      </Select>
+            <NavigationMenuContent class="border-primary-black-100">
+              <ul class="p-4 flex flex-col gap-3">
+                <li
+                  v-for="style in props.clotheStyles"
+                  :key="style"
+                  class="flex gap-2 items-center text-nowrap"
+                >
+                  <Checkbox
+                    :id="style"
+                    :checked="activeFilters.selectedStyles.includes(style)"
+                    @update:checked="(e) => activeFilters.stylesHandler(e, style)"
+                  />
+                  <label :for="style">
+                    {{ style }}
+                  </label>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          <!-- Цвет -->
+          <NavigationMenuItem>
+            <NavigationMenuTrigger class="border border-primary-black-100" left="230px">
+              Цвета
+            </NavigationMenuTrigger>
+
+            <NavigationMenuContent class="border-primary-black-100">
+              <ul class="colors-tab p-4 flex flex-col gap-3">
+                <li v-for="color in props.colors" :key="color">
+                  <Checkbox
+                    :id="color"
+                    :color="color"
+                    :isColor="true"
+                    :checked="activeFilters.selectedStyles.includes(color)"
+                    @update:checked="(e) => activeFilters.stylesHandler(e, color)"
+                  />
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
 
       <div class="ml-auto flex items-center gap-2">
         <span class="text-page-color text-sm">Сортировка:</span>
         <Select defaultValue="maxmin">
-          <SelectTrigger class="select-trigger select-trigger--sort">
+          <SelectTrigger class="w-fit !border-primary-black-100 !rounded-[4px] px-4 py-3 ml-auto">
             <SelectValue placeholder="Сортировка" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent class="!border-primary-black-100">
             <SelectGroup>
               <SelectItem value="maxmin">По возрастанию цены</SelectItem>
               <SelectItem value="minmax">По уменьшению цены</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
-      </div> -->
-
-      <NavigationMenu class="w-full max-w-full justify-normal">
-        <NavigationMenuList class="gap-4 ml-auto w-full">
-          <NavigationMenuItem
-            v-for="(tab, index) in tabs"
-            :key="index"
-            :class="index === tabs.length - 1 ? 'ml-auto' : ''"
-          >
-            <NavigationMenuTrigger class="border border-primary-black-100" :index="tab.left">
-              {{ tab.title }}
-            </NavigationMenuTrigger>
-            <NavigationMenuContent class="border-primary-black-100">
-              <ul
-                v-if="!tab.typeSingle"
-                class="p-4 flex flex-col gap-3"
-                :class="tab.isColor ? 'colors-tab' : ''"
-              >
-                <li
-                  v-for="(option, index) in tab.options"
-                  :key="index"
-                  class=""
-                  :class="tab.isColor ? '' : 'flex gap-2 items-center text-nowrap'"
-                >
-                  <Checkbox :id="option" :color="option" :isColor="tab.isColor" />
-                  <label v-if="!tab.isColor" :for="option">
-                    {{ option }}
-                  </label>
-                </li>
-              </ul>
-              <ul class="p-4 flex flex-col gap-3" v-else>
-                <RadioGroup asChild>
-                  <li
-                    v-for="(option, index) in tab.options"
-                    :key="index"
-                    class="!flex gap-2 items-center text-nowrap"
-                  >
-                    <RadioGroupItem :id="option" :value="option" />
-                    <label :for="option">
-                      {{ option }}
-                    </label>
-                  </li>
-                </RadioGroup>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+      </div>
     </div>
   </aside>
 </template>
 
 <style lang="scss" scoped>
-.select-trigger {
-  width: fit-content;
-  border-radius: 12px;
-  padding: 12px 16px;
-  &--sort {
-    margin-left: auto;
-  }
-}
-
 aside {
   li {
     cursor: pointer;

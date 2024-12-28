@@ -21,15 +21,6 @@ const delegatedProps = computed(() => {
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
-// import { onMounted } from "vue";
-
-// onMounted(() => {
-//   const parent = document.getElementById("nav-menu");
-//   const firstDiv = parent?.querySelector("div:first-of-type") as HTMLElement;
-//   if (firstDiv) {
-//     firstDiv.style.width = "100%";
-//   }
-// });
 </script>
 
 <template>
