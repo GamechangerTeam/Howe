@@ -19,7 +19,7 @@ const props = defineProps({
       <p class="text-sm text-primary-black-300">Цвет:</p>
       <p class="text-sm text-primary-black-300">Фасон:</p>
       <div v-if="props.counter" class="mt-3 flex items-center justify-between w-full">
-        <NumberField class=" " id="count" :default-value="1" :min="1">
+        <NumberField class=" " id="count" :default-value="1" :min="1" :max="100">
           <NumberFieldContent class="max-w-[120px] mobile-min:max-w-[150px]">
             <NumberFieldDecrement class="px-3 py-3 mobile-min:px-4" />
             <NumberFieldInput class="!p-0" />

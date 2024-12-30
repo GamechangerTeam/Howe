@@ -100,6 +100,11 @@ const slides: CardTypes[] = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-4.jpg",
   },
 ];
+
+const selectedColor = ref("");
+const selectedSize = ref("");
+const selectedStyle = ref("");
+const itemCount = ref(1);
 </script>
 
 <template>
@@ -145,6 +150,8 @@ const slides: CardTypes[] = [
                 :color="color"
                 :isColor="true"
                 class="tablet-big:h-7 tablet-big:w-7 w-6 h-6"
+                :checked="selectedColor === color"
+                @update:checked="() => (selectedColor = color)"
               />
             </li>
           </ul>
@@ -153,7 +160,7 @@ const slides: CardTypes[] = [
 
         <div>
           <h3 class="mb-4 text-lg">Фасон</h3>
-          <ToggleGroup type="multiple">
+          <ToggleGroup type="single" v-model="selectedStyle">
             <ToggleGroupItem v-for="(style, index) in clotheStyles" :key="index" :value="style">
               {{ style }}
             </ToggleGroupItem>
@@ -162,14 +169,21 @@ const slides: CardTypes[] = [
         <hr class="border-dashed border-1 border-primary-black-300 my-2 laptop:my-4" />
         <div>
           <h3 class="mb-4 text-lg">Размер</h3>
-          <ToggleGroup type="multiple">
+          <ToggleGroup type="single" v-model="selectedSize">
             <ToggleGroupItem v-for="(size, index) in sizes" :key="index" :value="size">
               {{ size }}
             </ToggleGroupItem>
           </ToggleGroup>
         </div>
         <hr class="border-dashed border-1 border-primary-black-300 my-2 laptop:my-4" />
-        <NumberField class="mx-auto" id="age" :default-value="1" :min="1">
+        <NumberField
+          class="mx-auto"
+          id="age"
+          v-model="itemCount"
+          :default-value="1"
+          :min="1"
+          :max="100"
+        >
           <NumberFieldContent>
             <NumberFieldDecrement />
             <NumberFieldInput />
@@ -183,9 +197,11 @@ const slides: CardTypes[] = [
               Оформить
             </NuxtLink>
           </Button>
-          <Button variant="black" class="text-md">
-            <NuxtImg src="/icons/overlay-logo.svg" alt="Купить товар" height="20" width="20" />
-            Наложить логотип
+          <Button variant="black" class="text-md" asChild>
+            <NuxtLink to="/constructor" class="flex items-center gap-2">
+              <NuxtImg src="/icons/overlay-logo.svg" alt="Купить товар" height="20" width="20" />
+              Наложить логотип
+            </NuxtLink>
           </Button>
         </div>
       </div>

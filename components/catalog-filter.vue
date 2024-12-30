@@ -77,7 +77,7 @@ const tabs = [
 
           <!-- Фасон -->
           <NavigationMenuItem>
-            <NavigationMenuTrigger class="border border-primary-black-100" left="120px">
+            <NavigationMenuTrigger class="border border-primary-black-100" left="130px">
               Фасон
             </NavigationMenuTrigger>
 
@@ -103,7 +103,7 @@ const tabs = [
 
           <!-- Цвет -->
           <NavigationMenuItem>
-            <NavigationMenuTrigger class="border border-primary-black-100" left="230px">
+            <NavigationMenuTrigger class="border border-primary-black-100" left="245px">
               Цвета
             </NavigationMenuTrigger>
 
@@ -127,7 +127,7 @@ const tabs = [
       <div class="ml-auto flex items-center gap-2">
         <span class="text-page-color text-sm">Сортировка:</span>
         <Select defaultValue="maxmin">
-          <SelectTrigger class="w-fit !border-primary-black-100 !rounded-[4px] px-4 py-3 ml-auto">
+          <SelectTrigger class="w-fit !border-primary-black-100 !rounded-[8px] px-4 py-3 ml-auto">
             <SelectValue placeholder="Сортировка" />
           </SelectTrigger>
           <SelectContent class="!border-primary-black-100">

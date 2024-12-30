@@ -11,7 +11,6 @@ const ready = ref(false);
 onMounted(() => {
   width.value = cardInfo.width.value;
   height.value = cardInfo.height.value;
-  console.log(cardInfo.width.value);
   ready.value = true;
 });
 </script>

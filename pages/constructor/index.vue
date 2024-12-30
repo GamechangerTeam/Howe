@@ -124,7 +124,9 @@ const itemsList = [
       class="grid gap-2 mt-6 mobile-min:grid-cols-2 mobile-big:grid-cols-3 tablet:grid-cols-4 tablet:gap-3 tablet-big:gap-5"
     >
       <li v-for="(item, index) in itemsList" :key="index">
-        <Card :data="item" />
+        <NuxtLink to="/constructor/lox">
+          <Card :data="item" />
+        </NuxtLink>
       </li>
     </ul>
   </div>
