@@ -2,7 +2,7 @@
 import { fabric } from "fabric";
 import { ref, onMounted, defineExpose } from "vue";
 const canvasRef = ref<HTMLCanvasElement | null>(null);
-const canvas = ref<fabric.Canvas | null>(null);
+let canvas = <fabric.Canvas | null>null;
 
 const width = ref(0);
 const height = ref(0);
@@ -44,8 +44,8 @@ const addImg = (url: string) => {
     img.scaleToHeight(targetHeight);
 
     img.set({
-      left: (canvas.value?.width! - targetWidth) / 2,
-      top: (canvas.value?.height! - targetHeight) / 2,
+      left: (canvas?.width! - targetWidth) / 2,
+      top: (canvas?.height! - targetHeight) / 2,
       originX: "center",
       originY: "center",
       selectable: true, // Включаем возможность выбора
@@ -63,17 +63,43 @@ const addImg = (url: string) => {
       render: renderIcon,
     });
 
-    console.log(canvas.value);
-
-    canvas.value?.add(img);
-    canvas.value?.setActiveObject(img);
+    canvas?.add(img);
+    canvas?.setActiveObject(img);
   });
+};
+
+const addText = ({
+  text,
+  fontSize,
+  fontWeight,
+  color,
+  font,
+  align,
+  lineHeight,
+  letterSpacing,
+}: any) => {
+  if (canvas) {
+    const textObj = new fabric.Text(text, {
+      left: canvas.width! / 2,
+      top: canvas.height! / 2,
+      originX: "center",
+      originY: "center",
+      fontSize: +fontSize || 24,
+      fontFamily: font || "Magnet",
+      fill: color || "black",
+      fontWeight: fontWeight || "normal",
+      lineHeight: lineHeight || 1,
+      textAlign: align || "left",
+      charSpacing: letterSpacing ? letterSpacing * 100 : 0,
+    });
+    canvas.add(textObj);
+  }
 };
 
 const initCanvas = () => {
   if (!canvasRef.value) return;
-  canvas.value = new fabric.Canvas(canvasRef.value);
-  canvas.value!.selection = true;
+  canvas = new fabric.Canvas(canvasRef.value);
+  canvas.selection = true;
 };
 
 onMounted(async () => {
@@ -82,19 +108,22 @@ onMounted(async () => {
   width.value = rect.width;
   height.value = rect.height;
   ready.value = true;
+  await nextTick();
+
   setTimeout(() => {
     initCanvas();
-  }, 10);
+  }, 1000);
 });
 
 defineExpose({
   addImg,
+  addText,
 });
 </script>
 
 <template>
   <div class="canvas-wrapper">
-    <canvas v-if="ready" ref="canvasRef" id="canvas" :width="width" :height="height"></canvas>
+    <canvas ref="canvasRef" id="canvas" :width="width" :height="height"></canvas>
   </div>
 </template>
 
@@ -102,17 +131,13 @@ defineExpose({
 @use "~/assets/css/components" as *;
 
 .canvas-wrapper {
-  border: 1px solid $primary-black-300;
+  border: 1px dashed $primary-black-300;
   position: relative;
-  width: 35% !important;
+  width: 40% !important;
   height: auto !important;
   aspect-ratio: 2/3;
-  left: 50%;
-  top: 55%;
+  left: 51%;
+  top: 50%;
   transform: translate(-50%, -50%);
-}
-
-#canvas {
-  cursor: crosshair;
 }
 </style>

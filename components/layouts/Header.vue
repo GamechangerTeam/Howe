@@ -31,7 +31,7 @@ watch(
     <div
       class="container flex items-center justify-between text-xs mobile:text-base mobile-big:text-xl"
     >
-      <ul class="pc-nav hidden tablet-big:flex gap-8 items-center">
+      <ul class="pc-nav hidden tablet-big:flex gap-5 laptop:gap-8 items-center">
         <li>
           <NuxtLink to="/catalog/female">Женское</NuxtLink>
         </li>

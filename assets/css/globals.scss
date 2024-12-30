@@ -28,7 +28,6 @@ html {
   background: #fcfcfc !important;
 }
 
-
 :root {
   --page-color: #c41e40;
   --page-color-bg: radial-gradient(100.51% 124.04% at 50% 4.99%, #c41e40 0%, #ee6580 100%);
@@ -81,4 +80,15 @@ html {
       background: var(--primary-blue-gradient);
     }
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }

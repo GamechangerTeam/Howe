@@ -9,6 +9,7 @@ const props = defineProps<{
   placeholder?: string;
   type?: string;
   class?: HTMLAttributes["class"];
+  max?: string
 }>();
 
 const emits = defineEmits<{
@@ -25,8 +26,10 @@ const modelValue = useVModel(props, "modelValue", emits, {
   <div class="input-wrapper">
     <input
       v-model="modelValue"
+      v-bind="props"
       :type="props.type || 'text'"
       placeholder=" "
+      :max="props.max"
       :class="
         cn(
           'flex w-full rounded-[8px] border text-sm border-primary-black-300 bg-background px-4 pt-4 pb-2  ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-primary-black-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
