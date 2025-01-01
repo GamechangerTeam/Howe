@@ -134,7 +134,7 @@ const itemCount = ref(1);
           Название
         </div>
         <h1 class="text-3xl mt-4">
-          Хуело <span class="text-primary-black-300">(Еврогейское)</span>
+          Поло <span class="text-primary-black-300">(Европейское)</span>
         </h1>
         <div class="flex items-end gap-2">
           <span class="old-price">20.000₸</span>
