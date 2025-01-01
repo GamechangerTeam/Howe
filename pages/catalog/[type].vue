@@ -33,7 +33,7 @@ const sort = ["По возрастанию", "По убыванию"];
 const itemsList = [
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -41,7 +41,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -49,7 +49,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -57,7 +57,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -65,7 +65,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -73,7 +73,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -81,7 +81,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -89,7 +89,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -97,7 +97,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -105,7 +105,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
@@ -113,7 +113,7 @@ const itemsList = [
   },
   {
     name: "Поло",
-    secondName: "(Ебаная)",
+    secondName: "(Крутое)",
     price: "22.000₸",
     oldPrice: "25.000₸",
     colors: ["#000", "#4e3030", "#fff"],
