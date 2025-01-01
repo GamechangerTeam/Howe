@@ -4,7 +4,7 @@ export const useCartStore = defineStore("cartStore", {
   state: () => ({
     items: [
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -12,7 +12,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -20,7 +20,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -28,7 +28,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -36,7 +36,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -44,7 +44,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -52,7 +52,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -60,7 +60,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -68,7 +68,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -76,7 +76,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",
@@ -84,7 +84,7 @@ export const useCartStore = defineStore("cartStore", {
         img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
       },
       {
-        name: "Хуюзка",
+        name: "Поло",
         secondName: "(Ебаная)",
         price: "22.000₸",
         oldPrice: "25.000₸",

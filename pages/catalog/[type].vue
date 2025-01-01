@@ -32,7 +32,7 @@ const sort = ["По возрастанию", "По убыванию"];
 
 const itemsList = [
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -40,7 +40,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -48,7 +48,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -56,7 +56,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -64,7 +64,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -72,7 +72,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -80,7 +80,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -88,7 +88,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -96,7 +96,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -104,7 +104,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",
@@ -112,7 +112,7 @@ const itemsList = [
     img: "/images/products/man/top/robe-WH/robe-wh-asian-1.jpg",
   },
   {
-    name: "Хуюзка",
+    name: "Поло",
     secondName: "(Ебаная)",
     price: "22.000₸",
     oldPrice: "25.000₸",

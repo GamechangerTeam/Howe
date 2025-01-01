@@ -25,19 +25,19 @@
             <h4>Женское</h4>
             <ul>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
             </ul>
           </div>
@@ -45,19 +45,19 @@
             <h4>Женское</h4>
             <ul>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/">Хуй</nuxt-link>
+                <nuxt-link to="/">Ссылка</nuxt-link>
               </li>
             </ul>
           </div>
